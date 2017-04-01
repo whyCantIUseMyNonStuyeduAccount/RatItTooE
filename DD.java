@@ -8,17 +8,39 @@ public class DD<T> implements Deque<T> {
     }
     
     public void addFirst(T val){
-	LLN
+	LLNode<T> subIn = new LLNode(val, null);
 	if (size==0){
-	    front
+	    front = subIn;
+	    end = subIn;
 	}
-    } 
+	else {
+	    subIn.setNext(new LLNode(front.getValue(),front.getNext()));
+	    front = subIn;
+	    size++;
+	}
+	
+    }
+
+    public String toString(){
+	String retStr = "";
+	LLNode<T> dummyNode = front;
+	while (dummyNode != null){
+	    retStr += dummyNode.getValue() + "-->";
+	    dummyNode += dummyNode.getNext();
+	}
+	return retStr;
+    }
 
 
 
 
     public static void main( String[] args ) {
-
+	DD bob = new DD();
+	bob.addFirst("No");
+	bob.addFirst("Cake");
+	bob.addFirst("For");
+	bob.addFirst("You");
+	System.out.println(bob);
     }
 
 }
