@@ -1,6 +1,6 @@
 public class DD<T> implements Deque<T> {
 
-    private LLNode front, end;
+    private DLLNode front, end;
     private int size;
  
     public DD() {
@@ -8,25 +8,27 @@ public class DD<T> implements Deque<T> {
     }
     
     public void addFirst(T val){
-	LLNode<T> subIn = new LLNode(val, null);
+	DLLNode<T> subIn = new DLLNode(val,null,null);
 	if (size==0){
 	    front = subIn;
 	    end = subIn;
 	}
 	else {
-	    subIn.setNext(new LLNode(front.getValue(),front.getNext()));
+	    front.setPrev(subIn);
+	    subIn.setNext(front);
 	    front = subIn;
-	    size++;
 	}
 	
     }
 
     public String toString(){
 	String retStr = "";
-	LLNode<T> dummyNode = front;
-	while (dummyNode != null){
-	    retStr += dummyNode.getValue() + "-->";
-	    dummyNode += dummyNode.getNext();
+	DLLNode<T> dummyNode = front;
+	while (dummyNode!=null){
+	    System.out.println(retStr);
+	    retStr += dummyNode.getCargo();
+	    retStr += " --> ";
+	    dummyNode = dummyNode.getNext();
 	}
 	return retStr;
     }
@@ -36,11 +38,12 @@ public class DD<T> implements Deque<T> {
 
     public static void main( String[] args ) {
 	DD bob = new DD();
-	bob.addFirst("No");
-	bob.addFirst("Cake");
-	bob.addFirst("For");
 	bob.addFirst("You");
+	bob.addFirst("for");
+	bob.addFirst("cake");
+	bob.addFirst("no");
 	System.out.println(bob);
+	
     }
 
 }

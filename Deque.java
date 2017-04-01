@@ -1,6 +1,6 @@
 public interface Deque<T> {
 
-    //public void addFirst(T e);
+    public void addFirst(T e);
     //public void addLast(T e);
 
     //public boolean contains(Object O);
