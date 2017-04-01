@@ -12,12 +12,15 @@ public class DD<T> implements Deque<T> {
 	if (size==0){
 	    front = subIn;
 	    end = subIn;
+	    
 	}
 	else {
 	    front.setPrev(subIn);
 	    subIn.setNext(front);
 	    front = subIn;
+      
 	}
+	size++;
 	
     }
 
