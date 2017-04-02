@@ -1,6 +1,6 @@
 public class DD<T> implements Deque<T> {
 
-    private DLLNode front, end;
+    private DLLNode<T> front, end;
     private int size;
  
     public DD() {
@@ -40,7 +40,6 @@ public class DD<T> implements Deque<T> {
 	String retStr = "";
 	DLLNode<T> dummyNode = front;
 	while (dummyNode!=null){
-	    System.out.println(retStr);
 	    retStr += dummyNode.getCargo();
 	    retStr += " --> ";
 	    dummyNode = dummyNode.getNext();
@@ -48,8 +47,38 @@ public class DD<T> implements Deque<T> {
 	return retStr;
     }
 
+    public boolean contains(Object O){
+	DLLNode dummyFront=front;
+	while (dummyFront != null){
+	    if (dummyFront.getCargo().equals(O)){
+		return true;
+	    }
+	    dummyFront=dummyFront.getNext();
+	}
+	return false;
+    }
 
+    public T getFirst() {
+	return front.getCargo();
+    }
 
+    public T getLast() {
+	return end.getCargo();
+    }
+
+    public T removeFirst(){
+	T retT = this.getFirst();
+	front = front.getNext();
+	front.setPrev(null);
+	return retT;
+    }
+
+    public T removeLast(){
+	T retT= this.getLast();
+	end = end.getPrev();
+	end.setNext(null);
+	return retT;
+    }
 
     public static void main( String[] args ) {
 	DD bob = new DD();
@@ -65,6 +94,15 @@ public class DD<T> implements Deque<T> {
 	marley.addLast("for");
 	marley.addLast("you");
 	System.out.println("marley: " + marley);
+
+	System.out.println("marley has cake?: " + marley.contains ("cake"));
+	System.out.println("marley has plants?: " + marley.contains ("plants"));
+	System.out.println("last: " + marley.getFirst());
+	System.out.println("front: " + marley.getLast());
+	System.out.println("removed first: " + marley.removeFirst());
+	System.out.println("removed last: " + marley.removeLast());
+	System.out.println(marley);
+	
 	
     }
 
