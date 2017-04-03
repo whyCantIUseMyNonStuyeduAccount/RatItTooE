@@ -31,3 +31,9 @@ Return the value of variable size.
 
 ## Choice In Architecture
 We chose to use a (doubly-linked) node-base architecture for our Deque.  The reason for this is because we thought that it would make some methods run faster.  In an array or arrayList, most of the time you will have to shift the data in the Deque in some fashion when you make a deletion or insertion.  In a node, however, you will only need to redirect the pointers of the required nodes.
+
+## Method Selection Philosophies 
+We also chose to leave out some methods because we wanted to eliminate redundancies and ensure that deque can only be modified 
+on the ends of the code.
+And so keep it a deque, rather than be able to edit in the middle, 
+making sure that it stays doubly-linked.
