@@ -9,7 +9,7 @@ public class DD<T> implements Deque<T> {
     
     public void addFirst( T val ) {
 	DLLNode<T> subIn = new DLLNode( val, null, null );
-	if ( size == 0 ){
+	if ( size == 0 ) {
 	    front = subIn;
 	    end = subIn;
 	    
@@ -47,7 +47,8 @@ public class DD<T> implements Deque<T> {
 	return retStr;
     }
 
-    public boolean contains( Object O ){
+
+    public boolean contains( Object O ) {
 	DLLNode dummyFront = front;
 	while ( dummyFront != null ) {
 	    if ( dummyFront.getCargo().equals( O ) ) {
@@ -84,8 +85,6 @@ public class DD<T> implements Deque<T> {
 	return size;
     }
 
-
-
     public static void main( String[] args ) {
 	DD bob = new DD();
 	bob.addFirst("you");
@@ -108,8 +107,5 @@ public class DD<T> implements Deque<T> {
 	System.out.println("removed first: " + marley.removeFirst());
 	System.out.println("removed last: " + marley.removeLast());
 	System.out.println(marley);
-	
-	
     }
-
 }
