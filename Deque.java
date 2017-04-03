@@ -8,8 +8,8 @@ public interface Deque<T> {
     public T getFirst();
     public T getLast();
 
-    public T removeFirst(Object O);
-    public T removeLast(Object O);
+    public T removeFirst();
+    public T removeLast();
 
     public int size();
 

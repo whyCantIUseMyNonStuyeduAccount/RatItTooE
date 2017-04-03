@@ -7,39 +7,39 @@ public class DD<T> implements Deque<T> {
 	front = end = null;
     }
     
-    public void addFirst(T val){
-	DLLNode<T> subIn = new DLLNode(val,null,null);
-	if (size==0){
+    public void addFirst( T val ) {
+	DLLNode<T> subIn = new DLLNode( val, null, null );
+	if ( size == 0 ){
 	    front = subIn;
 	    end = subIn;
 	    
 	}
 	else {
-	    front.setPrev(subIn);
-	    subIn.setNext(front);
+	    front.setPrev( subIn );
+	    subIn.setNext( front );
 	    front = subIn;
 	}
 	size++;
     }
 
-    public void addLast(T val){
-	DLLNode<T> subIn = new DLLNode(val,null,null);
-	if (size==0){
+    public void addLast( T val ) {
+	DLLNode<T> subIn = new DLLNode( val, null, null );
+	if ( size == 0 ) {
 	    front = subIn;
 	    end = subIn;
 	}
 	else {
-	    end.setNext(subIn);
-	    subIn.setPrev(end);
+	    end.setNext( subIn );
+	    subIn.setPrev( end );
 	    end = subIn;
 	}
 	size++;
     }
 
-    public String toString(){
+    public String toString() {
 	String retStr = "";
 	DLLNode<T> dummyNode = front;
-	while (dummyNode!=null){
+	while ( dummyNode != null ){
 	    retStr += dummyNode.getCargo();
 	    retStr += " --> ";
 	    dummyNode = dummyNode.getNext();
@@ -47,13 +47,13 @@ public class DD<T> implements Deque<T> {
 	return retStr;
     }
 
-    public boolean contains(Object O){
-	DLLNode dummyFront=front;
-	while (dummyFront != null){
-	    if (dummyFront.getCargo().equals(O)){
+    public boolean contains( Object O ){
+	DLLNode dummyFront = front;
+	while ( dummyFront != null ) {
+	    if ( dummyFront.getCargo().equals( O ) ) {
 		return true;
 	    }
-	    dummyFront=dummyFront.getNext();
+	    dummyFront = dummyFront.getNext();
 	}
 	return false;
     }
@@ -66,19 +66,25 @@ public class DD<T> implements Deque<T> {
 	return end.getCargo();
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
 	T retT = this.getFirst();
 	front = front.getNext();
-	front.setPrev(null);
+	front.setPrev( null );
 	return retT;
     }
 
-    public T removeLast(){
-	T retT= this.getLast();
+    public T removeLast() {
+	T retT = this.getLast();
 	end = end.getPrev();
-	end.setNext(null);
+	end.setNext( null );
 	return retT;
     }
+    
+    public int size() {
+	return size;
+    }
+
+
 
     public static void main( String[] args ) {
 	DD bob = new DD();
