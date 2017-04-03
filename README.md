@@ -26,5 +26,8 @@ First, make a T (retT) and set it as the cargo of front.  Then, set front equal 
 #### 8) T	 removeLast()
 First, make a T (retT) and set it as the cargo of end.  Then, set end equal to its previous DLLNode.  Then, set the "next" pointer of end to null, Finally, return retT.
 
+#### 9) int      size()
+Return the value of variable size.
+
 ## Choice In Architecture
 We chose to use a (doubly-linked) node-base architecture for our Deque.  The reason for this is because we thought that it would make some methods run faster.  In an array or arrayList, most of the time you will have to shift the data in the Deque in some fashion when you make a deletion or insertion.  In a node, however, you will only need to redirect the pointers of the required nodes.
