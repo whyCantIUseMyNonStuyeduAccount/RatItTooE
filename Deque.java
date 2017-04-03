@@ -9,6 +9,18 @@ public interface Deque<T> {
 
     public T getFirst();
     public T getLast();
+
+    //public T offer( T e );
+    //public T offerFirst ( T e );
+    //public T offerLast( T e );
+
+    //public T peek();
+    //public T peekFirst();
+    //public T peekLast();
+
+    //public T poll();
+    //public T pollFirst();
+    //public T pollLasT();
     
     //public boolean removeFirstOccurence( Object O );
     //public boolean removeLastOccurence( Object O );
